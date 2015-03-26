@@ -9,7 +9,7 @@
     "maturity": "beta",
     "repository": {
             "type": "git",
-            "source": "https://"
+            "source": "https://github.com/rvhaasen/z-way-xively"
     },
     "defaults": {
         "title": "Xively sensor logging",
