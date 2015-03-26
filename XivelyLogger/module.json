@@ -1,0 +1,65 @@
+{
+    "dependencies": [],
+    "singleton": false,
+    "category": "logging",
+    "author": "Rick van Haasen",
+    "homepage": "http://",
+    "icon": "",
+    "version": "0.0.1",
+    "maturity": "beta",
+    "repository": {
+            "type": "git",
+            "source": "https://"
+    },
+    "defaults": {
+        "title": "Xively sensor logging",
+        "description": "Store sensor values in to feed at Xively webservice",
+        "device": ""
+    },
+    "schema": {
+        "type": "object",
+        "properties": {
+            "device": {
+                "field": "enum",
+                "datasource": "namespaces",
+                "enum": "namespaces:devices_sensorBinary:deviceId,namespaces:devices_sensorMultilevel:deviceId,namespaces:devices_switchBinary:deviceId,namespaces:devices_switchMultilevel:deviceId,namespaces:devices_doorlock:deviceId,namespaces:devices_switchControl:deviceId",
+                "required": true
+            },
+            "name": {
+                "type": "string",
+                "required": true
+            },
+            "API_key": {
+                "type": "string",
+                "required": true
+            },
+            "feed": {
+                "type": "string",
+                "required": true
+            }
+        },
+        "required": false
+    },
+    "options": {
+        "fields": {
+            "device": {
+                "label": "Sensor to log",
+                "datasource": "namespaces",
+                "field": "optionLabels",
+                "optionLabels": "namespaces:devices_sensorBinary:deviceName,namespaces:devices_sensorMultilevel:deviceName,namespaces:devices_switchBinary:deviceName,namespaces:devices_switchMultilevel:deviceName,namespaces:devices_doorlock:deviceName,namespaces:devices_switchControl:deviceName"
+            },
+            "name": {
+                "label": "Name as it will appear in Xively feed",
+                "helper": "Example: Temperature in birdhouse 1"
+            },
+            "API_key": {
+                "label": "API key for required to send data to feed",
+                "helper": "Example: LnTp8fBMh123FOlgzOx9nbJqkUcgiFH90OTcFvDCBHL5D"
+            },
+            "feed": {
+                "label": "Feed where this sensor-data should be sent to",
+                "helper": "Example: 1182702123"
+            }
+        }
+    }
+}
