@@ -53,6 +53,21 @@ XivelyLogger.prototype.init = function (config) {
         });
 
 
+        if (self.config.log2File) {
+            var storedLog = loadObject("SensorValueLogging_" + vDev.id + "_" + self.id);
+            if (!storedLog) {
+                storedLog = {
+                    deviceId: vDev.id,
+                    deviceName: vDev.get("metrics:title"),
+                    sensorData: []
+                };
+            }
+            storedLog.sensorData.push({"time": Date.now(), "value": vDev.get("metrics:level")});
+            saveObject("SensorLogging_" + vDev.id + "_" + self.id, storedLog);
+            storedLog = null;
+        }
+
+
     };
 
     // Setup metric update event listener

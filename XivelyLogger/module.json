@@ -9,7 +9,7 @@
     "maturity": "beta",
     "repository": {
             "type": "git",
-            "source": "https://github.com/rvhaasen/z-way-xively"
+            "source": "https://"
     },
     "defaults": {
         "title": "Xively sensor logging",
@@ -36,7 +36,10 @@
             "feed": {
                 "type": "string",
                 "required": true
-            }
+            },
+	    "log2File": {
+		"type": "boolean"
+	    }
         },
         "required": false
     },
@@ -59,6 +62,11 @@
             "feed": {
                 "label": "Feed where this sensor-data should be sent to",
                 "helper": "Example: 1182702123"
+            },
+            "log2File": {
+                "label": "",
+                "rightLabel": "Write data to logfile",
+                "helper": "Data will be written to /opt/z-way-server/automation/storage/SensorValueZWayVDevzway****"
             }
         }
     }
