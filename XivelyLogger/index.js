@@ -63,7 +63,7 @@ XivelyLogger.prototype.init = function (config) {
                 };
             }
             storedLog.sensorData.push({"time": Date.now(), "value": vDev.get("metrics:level")});
-            saveObject("SensorLogging_" + vDev.id + "_" + self.id, storedLog);
+            saveObject("SensorValueLogging_" + vDev.id + "_" + self.id, storedLog);
             storedLog = null;
         }
 
