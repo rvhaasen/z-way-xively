@@ -1,6 +1,6 @@
 /*** XivelyLogger Z-Way Home Automation module *************************************
 
- Version: 0.0.1
+ Version: 0.0.2
 
  -----------------------------------------------------------------------------
  Author: Rick van Haasen
