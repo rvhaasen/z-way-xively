@@ -43,9 +43,16 @@ XivelyLogger.prototype.init = function (config) {
         var xively_url="https://api.xively.com/v2/feeds/${feed}";
         var fdat = '{ "version": "1.0.0", "datastreams": [ { "id": "${id}", "current_value": "${val}" } ] }';
 
+	// Xively does not display symbolic values properly in graph...
+	var level = vDev.get('metrics:level');
+	if (level == "on")
+		level=1;
+	if (level == "off")
+		level=0;
+
         http.request({
                 method: 'PUT',
-                data: fdat.replace("${val}",vDev.get('metrics:level')).replace("${id}", self.config.name),
+                data: fdat.replace("${val}",level).replace("${id}", self.config.name),
                 headers: {
                         "X-ApiKey":self.config.API_key
                 },
@@ -62,7 +69,7 @@ XivelyLogger.prototype.init = function (config) {
                     sensorData: []
                 };
             }
-            storedLog.sensorData.push({"time": Date.now(), "value": vDev.get("metrics:level")});
+            storedLog.sensorData.push({"time": Date.now(), "value": level});
             saveObject("SensorValueLogging_" + vDev.id + "_" + self.id, storedLog);
             storedLog = null;
         }
